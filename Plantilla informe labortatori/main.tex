@@ -81,9 +81,9 @@
 % Matrices in (A|B) form via [c|c] option
 \makeatletter
 \renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
-  \hskip -\arraycolsep
-  \let\@ifnextchar\new@ifnextchar
-  \array{#1}}
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{#1}}
 \makeatother
 
 % Shorter \mathcal and \mathbb
@@ -94,23 +94,58 @@
 \newcommand*{\sast}{^{\star}{}}
 \newcommand*{\sdag}{^{\dagger}{}}
 
+% Complex and Hermitian conjugates
+\newcommand*{\cc}{\,\text{c.c.}}
+\newcommand*{\Hc}{\,\text{H.c.}}
+
 % Blackboard bold identity
 \usepackage{bbm}
 \newcommand*{\bbid}{\mathbbm{1}}
+
+% Shorter displaystyle
+\newcommand*{\dsp}{\displaystyle}
+
+% Arrows with text and cancels for developments
+\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+\tikzset{square arrow/.style={to path={-- ++(0,-.25) -| (\tikztotarget)}}}
+\usepackage{cancel}
+
+% Short longitudinal and transverse fields
+\newcommand*{\vare}[1]{\va{\mathcal{#1}}}
+\newcommand*{\lng}[1]{{#1}_{\parallel}}
+\newcommand*{\trn}[1]{{#1}_{\perp}}
+
+% Named equation
+\usepackage{stackengine}
+\def\stackalignment{r}
+\def\useanchorwidth{T}
+\def\stacktype{L}
+\newlength\eqshift
+\setlength\eqshift{\widthof{)}}
+\renewcommand\theequation{\thesection.\arabic{equation}}
+\let\savetheequation\theequation
+\newenvironment{nequation}[1]{%
+	\def\thecurrentname{#1}%
+	\let\theequation\savetheequation%
+	\begin{equation}%
+	\renewcommand\theequation{%
+		\stackunder{\savetheequation}%
+		{{\small\thecurrentname}\hspace{-\the\eqshift}}}%
+}{%
+	\end{equation}%
+	\let\theequation\savetheequation%
+	\ignorespacesafterend%
+}
 
 %-----------------------------------------------------------------
 %	OTHER PACKAGES
 %-----------------------------------------------------------------
 \usepackage{environ}
 
-%Left numbered equations
-\makeatletter
-	\NewEnviron{Lalign}{\tagsleft@true\begin{align}\BODY\end{align}}
-\makeatother
-
 % Plots and graphics
 \usepackage{pgfplots}
 \usepackage{tikz}
+	\usetikzlibrary{calc}
 \usepackage{color}
 	\makeatletter
 		\color{black}
