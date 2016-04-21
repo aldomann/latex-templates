@@ -106,33 +106,6 @@
 \tikzset{square arrow/.style={to path={-- ++(0,-.25) -| (\tikztotarget)}}}
 \usepackage{cancel}
 
-% Short longitudinal and transverse fields
-\newcommand*{\vare}[1]{\va{\mathcal{#1}}}
-\newcommand*{\lng}[1]{{#1}_{\parallel}}
-\newcommand*{\trn}[1]{{#1}_{\perp}}
-
-% Named equation
-\usepackage{stackengine}
-\def\stackalignment{r}
-\def\useanchorwidth{T}
-\def\stacktype{L}
-\newlength\eqshift
-\setlength\eqshift{\widthof{)}}
-\renewcommand\theequation{\thesection.\arabic{equation}}
-\let\savetheequation\theequation
-\newenvironment{nequation}[1]{%
-	\def\thecurrentname{#1}%
-	\let\theequation\savetheequation%
-	\begin{equation}%
-	\renewcommand\theequation{%
-		\stackunder{\savetheequation}%
-		{{\small\thecurrentname}\hspace{-\the\eqshift}}}%
-}{%
-	\end{equation}%
-	\let\theequation\savetheequation%
-	\ignorespacesafterend%
-}
-
 %-----------------------------------------------------------------
 %	OTHER PACKAGES
 %-----------------------------------------------------------------
