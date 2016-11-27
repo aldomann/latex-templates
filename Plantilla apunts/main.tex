@@ -108,15 +108,6 @@
 % Shorter displaystyle
 \newcommand*{\dsp}{\displaystyle}
 
-% Inexact differential
-\newcommand{\dbar}{\mathchar'26\mkern-12mu\mathrm{d}}
-\newcommand{\indd}[1]{\dbar{#1}}
-
-% Arrows with text and cancels for developments
-\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
-\tikzset{square arrow/.style={to path={-- ++(0,-.25) -| (\tikztotarget)}}}
-\usepackage{cancel}
-
 %-----------------------------------------------------------------
 %	OTHER PACKAGES
 %-----------------------------------------------------------------
@@ -244,7 +235,7 @@
 \newcommand*{\mysubtitle}{}
 \newcommand*{\myauthor}{Alfredo Hernández Cavieres}
 \newcommand*{\myuni}{Universitat Autònoma de Barcelona, Departament de Física}
-\newcommand*{\mydate}{\normalsize 2014-2015}
+\newcommand*{\mydate}{\normalsize 2016-2017}
 
 \pdfstringdefDisableCommands{\def\and{i }}
 

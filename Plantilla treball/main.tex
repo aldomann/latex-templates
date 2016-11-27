@@ -10,7 +10,7 @@
 \usepackage[catalan]{babel}
 
 % Bibliography
-\usepackage[style=trad-abbrv, maxbibnames=5]{biblatex}
+\usepackage[backend=bibtex, style=trad-abbrv, maxbibnames=5]{biblatex}
 \addbibresource{{bibliografia.bib}
 
 % Sectioning layout
@@ -113,15 +113,6 @@
 % Shorter displaystyle
 \newcommand*{\dsp}{\displaystyle}
 
-% Inexact differential
-\newcommand{\dbar}{\mathchar'26\mkern-12mu\mathrm{d}}
-\newcommand{\indd}[1]{\dbar{#1}}
-
-% Arrows with text and cancels for developments
-\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
-\tikzset{square arrow/.style={to path={-- ++(0,-.25) -| (\tikztotarget)}}}
-\usepackage{cancel}
-
 %-----------------------------------------------------------------
 %	OTHER PACKAGES
 %-----------------------------------------------------------------
@@ -159,7 +150,6 @@
 \NoIndentAfterEnv{table}
 
 % Misc packages
-\usepackage{ccicons}
 \usepackage{lipsum}
 
 %-----------------------------------------------------------------
