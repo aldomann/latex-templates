@@ -1,0 +1,29 @@
+%-----------------------------------------------------------------
+%	TEMA 160000
+%	!TEX root = ./main.tex
+%-----------------------------------------------------------------
+\setcounter{section}{0}
+\setcounter{page}{1}
+\section{Delivery} % TODO change \mytitle conveniently
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+%--------------------
+\subsubsection*{Question 1}
+\begin{align*}
+	\boxed{ A = B + C }
+\end{align*}
+
+\begin{sproof}
+	First of all, it is obvious to see that
+	\begin{align}
+		A = B + C
+	\end{align}
+\end{sproof}
+
+\begin{lstlisting}[language=bash, caption=Code description]
+awk '{ gsub(", ", " "); print $0}' FS="," jan2017articles.csv
+\end{lstlisting}
+
+\begin{lstlisting}[language=, style=output]
+awk '{ gsub(", ", " "); print $0}' FS=","	jan2017articles.csv
+\end{lstlisting}
