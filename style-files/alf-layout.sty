@@ -1,0 +1,37 @@
+%-----------------------------------------------------------------
+%	OTHER PACKAGES
+%-----------------------------------------------------------------
+% Sectioning layout
+\addtokomafont{sectioning}{\normalfont\scshape}
+\usepackage{tocstyle}
+\usetocstyle{standard}
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont\bfseries{#1}}
+\usepackage[titletoc]{appendix}
+
+% Empty pages
+\usepackage{etoolbox}
+\pretocmd{\toc}{\cleardoubleevenemptypage}{}{}
+\pretocmd{\section}{\cleardoubleevenemptypage}{}{}
+\pretocmd{\part}{\cleardoubleevenemptypage\thispagestyle{empty}}{}{}
+\renewcommand\partheadstartvskip{\clearpage\null\vfil}
+\renewcommand\partheadmidvskip{\par\nobreak\vskip 20pt\thispagestyle{empty}}
+
+% Paragraph indentation behaviour
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3\baselineskip plus2pt minus2pt}
+\newcommand{\sk}{\medskip\noindent}
+
+% Fancy header and footer
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead[LO]{\thepage}
+\fancyhead[CO]{}
+\fancyhead[RO]{\nouppercase{\mytitle}}
+\fancyhead[LE]{\nouppercase{\rightmark}}
+% \fancyhead[LE]{\nouppercase{\leftmark}}
+\fancyhead[CE]{}
+\fancyhead[RE]{\thepage}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\headheight}{13.6pt}

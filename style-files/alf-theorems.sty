@@ -1,0 +1,20 @@
+%-----------------------------------------------------------------
+%	THEOREMS
+%-----------------------------------------------------------------
+\usepackage{thmtools}
+
+% Theroems layout
+\declaretheoremstyle[
+	spaceabove=6pt, spacebelow=6pt,
+	headfont=\normalfont,
+	notefont=\mdseries, notebraces={(}{)},
+	bodyfont=\small,
+	postheadspace=1em,
+]{small}
+
+\declaretheorem[style=plain,name=Theorem,qed=$\square$,numberwithin=section]{thm}
+\declaretheorem[style=plain,name=Corollary,qed=$\square$,sibling=thm]{cor}
+\declaretheorem[style=plain,name=Lemma,qed=$\square$,sibling=thm]{lem}
+\declaretheorem[style=definition,name=Definition,qed=$\blacksquare$,numberwithin=section]{defi}
+\declaretheorem[style=definition,name=Example,qed=$\blacktriangle$,numberwithin=section]{example}
+\declaretheorem[style=small,name=Proof,numbered=no,qed=$\square$]{sproof}

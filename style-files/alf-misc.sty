@@ -1,0 +1,60 @@
+%-----------------------------------------------------------------
+%	OTHER PACKAGES
+%-----------------------------------------------------------------
+\usepackage{environ}
+
+%Left numbered equations
+\makeatletter
+	\NewEnviron{Lalign}{\tagsleft@true\begin{align}\BODY\end{align}}
+\makeatother
+
+% Plots and graphics
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{color}
+	\makeatletter
+		\color{black}
+		\let\default@color\current@color
+	\makeatother
+
+% Richer enumerate, figure, and table support
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{booktabs}
+	%\setlength{\intextsep}{8pt}
+% \numberwithin{equation}{section}
+% \numberwithin{figure}{section}
+% \numberwithin{table}{section}
+
+% No indentation after certain environments
+\makeatletter
+\newcommand*\NoIndentAfterEnv[1]{%
+	\AfterEndEnvironment{#1}{\par\@afterindentfalse\@afterheading}}
+\makeatother
+%\NoIndentAfterEnv{thm}
+\NoIndentAfterEnv{defi}
+\NoIndentAfterEnv{example}
+\NoIndentAfterEnv{table}
+
+% Misc packages
+\usepackage{ccicons}
+\usepackage{lipsum}
+\usepackage{todonotes}
+\usepackage{array}
+\usepackage{multirow}
+
+% Print DOI only if there's no URL
+\renewbibmacro*{doi+eprint+url}{%
+	\iftoggle{bbx:doi}
+		{\iffieldundef{url}{\printfield{doi}}{}}
+		{}%
+	\newunit\newblock
+	\iftoggle{bbx:eprint}
+		{\usebibmacro{eprint}}
+		{}%
+	\newunit\newblock
+	\iftoggle{bbx:url}
+		{\usebibmacro{url+urldate}}
+		{}}
